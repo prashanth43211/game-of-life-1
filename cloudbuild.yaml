@@ -1,5 +1,4 @@
 steps:
-        # Pull the latest gcloud image.
-         # Clone a public repo and write its revision to a VERSION file.
-- name: 'gcr.io/$PROJECT_ID/git'
+- name: 'gcr.io/cloud-builders/git'
+  id: 'Clone'
   args: ['clone', 'https://github.com/chinni4321/game-of-life.git']
