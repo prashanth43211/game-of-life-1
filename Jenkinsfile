@@ -52,6 +52,26 @@ environment {
          archiveArtifacts '**/*.jar'
         }
       }
+     stage('Docker image build') {
+    steps {
+    script {
+        withDockerRegistry(registry:[ credentialsId: 'Docker-cred']) {
+         sh 'docker build -t chinni4321/test:v1 .'
+         
+   }
+        }
+      }
+     }
+        stage('Docker publish') {
+    steps {
+    script {
+        withDockerRegistry(registry:[ credentialsId: 'Docker-cred']) {
+         sh 'docker push nikitha19/test:v1'
+         
+   }
+        }
+      }
+     }
       
     }
 }
